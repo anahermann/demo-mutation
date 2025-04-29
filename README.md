@@ -2,30 +2,30 @@
 
 Esse sistema de lanchonete tem problemas, o que é estranho porque a cobertura de testes está em 92% e todos os teste passam.
 
-O exercício trata-se de identificar e corrigir os problemas, utilizando como apoio a ferramenta [PIT] (https://pitest.org/) para [testes de mutação] (https://pt.wikipedia.org/wiki/Teste_de_muta%C3%A7%C3%A3o), entendendo as vantagens e limitações da ferramenta para criação de testes mais robustos.
+O exercício trata-se de identificar e corrigir os problemas, utilizando como apoio a ferramenta [PIT](https://pitest.org/) para [testes de mutação](https://pt.wikipedia.org/wiki/Teste_de_muta%C3%A7%C3%A3o), entendendo as vantagens e limitações da ferramenta para criação de testes mais robustos.
 
 ## Regras do sistema
 O sistema calcula o valor de uma compra numa lanchonete de acordo com o cardápio, regras e descontos.
 
-- A saída do cálculo é no formato `R$ 9,99`.
+- A saída do cálculo é no formato `R$ 9,99`
 - Formas de pagamento válidas: PIX, dinheiro, debito, credito
 - Pagamento em dinheiro ou PIX tem 5% de desconto
 - Pagamento a crédito tem acréscimo de 3% no valor total
 - Se não forem pedidos itens, apresentar mensagem "Não há itens no carrinho de compra!"
-- Se a quantidade de itens for zero, apresentar mensagem "Quantidade inválida!".
+- Se a quantidade de itens for zero, apresentar mensagem "Quantidade inválida!"
 - Se o código do item não existir, apresentar mensagem "Item inválido!"
 - Se a forma de pagamento não existir, apresentar mensagem "Forma de pagamento inválida!"
-- Caso item extra seja informado num pedido que não tenha o respectivo item principal, apresentar mensagem "Item extra não pode ser pedido sem o principal".
-- É possível pedir mais de um item extra sem precisar de mais de um principal.
-- É possível pedir um item extra havendo item principal em um combo.
+- Caso item extra seja informado num pedido que não tenha o respectivo item principal, apresentar mensagem "Item extra não pode ser pedido sem o principal"
+- É possível pedir mais de um item extra sem precisar de mais de um principal
+- É possível pedir um item extra havendo item principal em um combo
 
 ## Entradas do sistema
 
-O sistema recebe duas strings, `pedido` e  `formaPagamento`. O pedido é informado separando as quantidades por vírgula e itens diferentes por ponto e vírgula. Por exemplo, um café e dois salgados são representados por "cafe,1;salgado,2".
+O sistema recebe duas strings, `pedido` e  `formaPagamento`. O pedido é informado separando as quantidades por vírgula e itens diferentes por ponto e vírgula. Por exemplo, um café e dois salgados são representados por `cafe,1;salgado,2`.
 
 ## Dados
 
-O retorno do banco de dados é mockado durante os testes. Por exemplo, para retornar a entidade correpondente a café, utiliza-se
+O retorno do banco de dados é mockado durante os testes. Por exemplo, para retornar a entidade correpondente a café, utiliza-se o código abaixo no respectivo teste:
 
 ```java
 // inicializar os dados conforme desejado
@@ -55,4 +55,4 @@ mvn install
 
 mvn test -P coverage
 
-O relatório será gerado na pasta /demo.mutation/target/pit-reports/
+O relatório será gerado na pasta /target/pit-reports/ do projeto.
