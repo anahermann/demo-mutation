@@ -2,7 +2,9 @@
 
 Esse sistema de lanchonete tem problemas, o que é estranho porque a cobertura de testes está em 92% e todos os teste passam.
 
-O exercício trata-se de identificar e corrigir os problemas, utilizando como apoio a ferramenta [PIT](https://pitest.org/) para [testes de mutação](https://pt.wikipedia.org/wiki/Teste_de_muta%C3%A7%C3%A3o), entendendo as vantagens e limitações da ferramenta para criação de testes mais robustos.
+O exercício trata-se de identificar e corrigir os problemas, utilizando como apoio a ferramenta [PIT](https://pitest.org/) para [testes de mutação](https://pt.wikipedia.org/wiki/Teste_de_muta%C3%A7%C3%A3o), entendendo assim as vantagens e limitações da ferramenta para criação de testes mais robustos.
+
+Testes de mutação são testes que modificam o código da aplicação e rodam novamente os testes unitários, identificando três situações possíveis: mutação eliminada (killed), mutação não detectada (survived) ou sem cobertura (no coverage), o que permite uma análise mais detalhada do que a métrica de cobertura usual.
 
 ## Regras do sistema
 O sistema calcula o valor de uma compra numa lanchonete de acordo com o cardápio, regras e descontos.
@@ -15,7 +17,7 @@ O sistema calcula o valor de uma compra numa lanchonete de acordo com o cardápi
 - Se a quantidade de itens for zero, apresentar mensagem "Quantidade inválida!"
 - Se o código do item não existir, apresentar mensagem "Item inválido!"
 - Se a forma de pagamento não existir, apresentar mensagem "Forma de pagamento inválida!"
-- Caso item extra seja informado num pedido que não tenha o respectivo item principal, apresentar mensagem "Item extra não pode ser pedido sem o principal"
+- Caso item extra seja informado num pedido que não tenha o respectivo item principal, apresentar mensagem "Item extra não pode ser pedido sem o principal!"
 - É possível pedir mais de um item extra sem precisar de mais de um principal
 - É possível pedir um item extra havendo item principal em um combo
 
@@ -55,4 +57,8 @@ mvn install
 
 mvn test -P coverage
 
-O relatório será gerado na pasta /target/pit-reports/ do projeto.
+O relatório em formato HTML será gerado na pasta /target/pit-reports/ do projeto. Caso você tenha problemas para instalar ou executar, o pdf do relatório gerado para a versão inicial da classe principal encontra-se anexado.
+
+## Analisando o relatório
+
+O relatório mostra as linhas que foram modificadas, qual modificação foi feita e qual o resultado de cada modificação.
