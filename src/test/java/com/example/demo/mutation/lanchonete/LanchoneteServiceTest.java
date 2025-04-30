@@ -35,16 +35,6 @@ public class LanchoneteServiceTest {
   }
 
   @Test
-  void testCalculaValorCompraSimples() {
-
-    when(itemMenuRepository.getItem("cafe"))
-        .thenReturn(ItemMenu.builder().valor(BigDecimal.valueOf(3.00)).build());
-    Mockito.doReturn("R$ 2,85").when(service).formataValor(Mockito.any());
-    String resultado = service.calculaValor("cafe,1", "dinheiro");
-    assertEquals("R$ 2,85", resultado);
-  }
-
-  @Test
   void testCalculaValorCompraComExtra() {
 
     when(itemMenuRepository.getItem("sanduiche"))
@@ -54,13 +44,6 @@ public class LanchoneteServiceTest {
 
     String resultado = service.calculaValor("sanduiche,1;queijo,1", "credito");
     assertNotNull(resultado);
-  }
-
-  @Test
-  void testCalculaValorComFormaPagamentoInvalida() {
-
-    assertThrows(IllegalArgumentException.class,
-        () -> service.calculaValor("sanduiche,1", "crebito"));
   }
 
   @Test
@@ -94,5 +77,22 @@ public class LanchoneteServiceTest {
     String resultado = service.calculaValor("combo1,1;queijo,1", "dinheiro");
     assertEquals("R$ 10,92", resultado.replace(".", ","));
 
+  }
+
+  @Test
+  void testCalculaValorCompraSimples() {
+
+    when(itemMenuRepository.getItem("cafe"))
+        .thenReturn(ItemMenu.builder().valor(BigDecimal.valueOf(3.00)).build());
+    Mockito.doReturn("R$ 2,85").when(service).formataValor(Mockito.any());
+    String resultado = service.calculaValor("cafe,1", "dinheiro");
+    assertEquals("R$ 2,85", resultado);
+  }
+
+  @Test
+  void testCalculaValorComFormaPagamentoInvalida() {
+
+    assertThrows(IllegalArgumentException.class,
+        () -> service.calculaValor("sanduiche,1", "crebito"));
   }
 }
