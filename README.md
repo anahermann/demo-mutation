@@ -57,7 +57,7 @@ mvn install
 
 mvn test -P coverage
 
-O relatório em formato HTML será gerado na pasta /target/pit-reports/ do projeto. Caso você tenha problemas para instalar ou executar, o pdf do relatório gerado para a versão inicial da classe principal encontra-se anexado.
+O relatório em formato HTML será gerado na pasta /target/pit-reports/ do projeto. Caso você tenha problemas para instalar ou executar, o pdf do relatório gerado para a versão inicial da classe principal encontra-se [anexado](https://github.com/anahermann/demo-mutation/blob/main/RelatorioPIT.pdf).
 
 ## Analisando o relatório
 
